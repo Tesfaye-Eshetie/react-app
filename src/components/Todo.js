@@ -1,15 +1,17 @@
+import { Button } from './styles/Button.styled';
+import { TodoContainer } from './styles/Todo.styled';
+
 const Todo = ({ todo, index, completeTodo, removeTodo })=> {
   return (
-    <div
-      className="todo"
+    <TodoContainer
       style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}
     >
       {todo.text}
       <div>
-        <button onClick={() => completeTodo(index)}>Complete</button>
-        <button onClick={() => removeTodo(index)}>x</button>
+        <Button onClick={() => completeTodo(index)}>Complete</Button>
+        <Button style= {{color: "red"}} onClick={() => removeTodo(index)}>x</Button>
       </div>
-    </div>
+    </TodoContainer>
   );
 }
   export default Todo;

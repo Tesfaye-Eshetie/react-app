@@ -1,13 +1,15 @@
 import React, {useState} from "react";
 import TodoForm from "./components/TodoForm";
 import Todo from "./components/Todo";
-import "./App.css";
+import { Container } from './components/styles/Container.styled';
+import GlobalStyles from './components/styles/Global';
 
 function App({todo, addTodo }) {
   const [todos, setTodos] = useState([
-    { text: "Learn about React" },
-    { text: "Meet friend for lunch" },
-    { text: "Build really cool todo app" }
+    { text: "Studying react hooks " },
+    { text: "Going to store" },
+    { text: "Build todo app" },
+    { text: "Spending time with family" }
   ]);
 
   const addTodos = text => {
@@ -28,20 +30,21 @@ function App({todo, addTodo }) {
   };
 
   return (
-    <div className="app">
-      <div className="todo-list">
-        {todos.map((todo, index) => (
-          <Todo
-            key={index}
-            index={index}
-            todo={todo}
-            completeTodo={completeTodo}
-            removeTodo={removeTodo}
-          />
-        ))}
+    <>
+      <GlobalStyles />
+      < Container >
+          {todos.map((todo, index) => (
+            <Todo
+              key={index}
+              index={index}
+              todo={todo}
+              completeTodo={completeTodo}
+              removeTodo={removeTodo}
+            />
+          ))}
         <TodoForm addTodo={addTodos} />
-      </div>
-    </div>
+      </Container>
+    </>
   );
 }
 
